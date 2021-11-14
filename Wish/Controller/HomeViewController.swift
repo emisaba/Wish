@@ -30,6 +30,6 @@ class HomeViewController: UIViewController {
         blurView.fillSuperview()
         
         ShootingStarPath.createStars(view: view)
-        ShootingStarPath.createStars(view: view)
+        ShootingStarPath.createShootingStars(view: view)
     }
 }
