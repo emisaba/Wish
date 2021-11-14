@@ -31,5 +31,6 @@ class HomeViewController: UIViewController {
         
         ShootingStarPath.createStars(view: view)
         ShootingStarPath.createStars(view: view)
+        ShootingStarPath.createStars(view: view)
     }
 }
