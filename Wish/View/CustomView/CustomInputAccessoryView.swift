@@ -18,12 +18,10 @@ class CustomInputAccessoryView: UIView {
         return tv
     }()
     
-    private let sendButton: UIButton = {
+    private let addListButton: UIButton = {
         let button = UIButton()
-        button.setTitle("send", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = .boldSystemFont(ofSize: 14)
-        button.addTarget(self, action: #selector(didTapSendButton), for: .touchUpInside)
+        button.setImage(#imageLiteral(resourceName: "list-add"), for: .normal)
+        button.addTarget(self, action: #selector(didTapAddListButton), for: .touchUpInside)
         return button
     }()
     
@@ -61,7 +59,7 @@ class CustomInputAccessoryView: UIView {
     
     // MARK: - Actions
     
-    @objc func didTapSendButton() {
+    @objc func didTapAddListButton() {
         delegate?.didTapSendButton(text: inputTextView.text ?? "")
         
         inputTextView.resignFirstResponder()
@@ -79,18 +77,18 @@ class CustomInputAccessoryView: UIView {
         addSubview(blurView)
         blurView.fillSuperview()
         
-        addSubview(sendButton)
-        sendButton.anchor(top: topAnchor,
+        addSubview(addListButton)
+        addListButton.anchor(top: topAnchor,
                           right: rightAnchor,
                           paddingTop: 4,
                           paddingRight: 8)
-        sendButton.setDimensions(height: 50, width: 50)
+        addListButton.setDimensions(height: 50, width: 50)
         
         addSubview(inputTextView)
         inputTextView.anchor(top: topAnchor,
                                     left: leftAnchor,
                                     bottom: safeAreaLayoutGuide.bottomAnchor,
-                                    right: sendButton.leftAnchor,
+                                    right: addListButton.leftAnchor,
                                     paddingTop: 12,
                                     paddingLeft: 12,
                                     paddingBottom: 8,

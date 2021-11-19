@@ -58,5 +58,10 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Moon Flower.otf</string>
+		<string>Moon Flower.ttf</string>
+	</array>
 </dict>
 </plist>

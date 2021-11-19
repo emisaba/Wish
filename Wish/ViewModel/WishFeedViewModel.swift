@@ -1,6 +1,6 @@
 import UIKit
 
-enum RowNumber: CaseIterable {
+enum CellRow: CaseIterable {
     
     case first
     case second
@@ -12,14 +12,14 @@ enum RowNumber: CaseIterable {
 struct WishFeedViewModel {
     let wish: Wish
     let rowHeight: CGFloat
-    let rowNumber: RowNumber
+    let cellRow: CellRow
     
     var wishText: String {
         return wish.wish
     }
     
     var wishTextAlignment: NSTextAlignment {
-        switch rowNumber {
+        switch cellRow {
         case .first:
             return .left
         case .second:
@@ -34,7 +34,7 @@ struct WishFeedViewModel {
     }
     
     var animationDelaySec: Double {
-        switch rowNumber {
+        switch cellRow {
         case .first:
             return 12
         case .second:
@@ -48,9 +48,9 @@ struct WishFeedViewModel {
         }
     }
     
-    init(wish: Wish, rowHeight: CGFloat, rowNumber: RowNumber) {
+    init(wish: Wish, rowHeight: CGFloat, cellRow: CellRow) {
         self.wish = wish
         self.rowHeight = rowHeight
-        self.rowNumber = rowNumber
+        self.cellRow = cellRow
     }
 }

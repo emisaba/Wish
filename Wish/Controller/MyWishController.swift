@@ -12,7 +12,7 @@ class MyWishViewController: HomeViewController {
         tv.register(ToDoListCell.self, forCellReuseIdentifier: cellIdentifier)
         tv.backgroundColor = .clear
         tv.separatorStyle = .none
-        tv.rowHeight = 60
+        tv.rowHeight = 70
         tv.contentInset = UIEdgeInsets(top: 70, left: 0, bottom: 10, right: 0)
         tv.alpha = 0
         return tv
@@ -20,8 +20,10 @@ class MyWishViewController: HomeViewController {
     
     private lazy var closeButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .systemYellow
         button.layer.cornerRadius = 30
+        button.setImage(#imageLiteral(resourceName: "close").withRenderingMode(.alwaysTemplate), for: .normal)
+        button.tintColor = .white
+        button.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         button.addTarget(self, action: #selector(didTapCloseButton), for: .touchUpInside)
         button.alpha = 0
         return button

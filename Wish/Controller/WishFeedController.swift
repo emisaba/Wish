@@ -20,11 +20,15 @@ class WishFeedController: HomeViewController {
     
     private lazy var editButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .systemPink
         button.layer.cornerRadius = 30
+        button.setImage(#imageLiteral(resourceName: "list").withRenderingMode(.alwaysTemplate), for: .normal)
+        button.tintColor = .white
+        button.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         button.addTarget(self, action: #selector(didTapEditButton), for: .touchUpInside)
         return button
     }()
+    
+    private var cellRow = 0
     
     private var wishes = [Wish]() {
         didSet { wishFeed.reloadData() }
@@ -92,9 +96,12 @@ extension WishFeedController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! WishFeedCell
         cell.backgroundColor = .clear
         cell.delegate = self
+        
+        if cellRow > 4 { cellRow = 0 }
         cell.wishFeedViewModel = WishFeedViewModel(wish: wishes[indexPath.row],
                                                    rowHeight: view.frame.height / 5,
-                                                   rowNumber: RowNumber.allCases[indexPath.row])
+                                                   cellRow: CellRow.allCases[cellRow])
+        cellRow += 1
         return cell
     }
 }

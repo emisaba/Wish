@@ -20,10 +20,10 @@ class WishFeedCell: UITableViewCell {
     private let feedLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
-        label.font = .boldSystemFont(ofSize: 20)
         label.numberOfLines = 0
         label.textAlignment = .center
         label.alpha = 0
+        label.font = .mnoonFlower(size: 50)
         return label
     }()
     

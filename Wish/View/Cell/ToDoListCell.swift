@@ -39,8 +39,8 @@ class ToDoListCell: UITableViewCell {
         let label = UILabel()
         label.backgroundColor = .clear
         label.textColor = .white
-        label.font = .systemFont(ofSize: 20)
         label.numberOfLines = 0
+        label.font = .mnoonFlower(size: 50)
         return label
     }()
     
@@ -69,9 +69,11 @@ class ToDoListCell: UITableViewCell {
         selectionStyle = .none
         
         contentView.addSubview(checkBox)
-        checkBox.anchor(left: leftAnchor,
-                            paddingLeft: 20)
-        checkBox.centerY(inView: self)
+        checkBox.anchor(top: topAnchor,
+                        left: leftAnchor,
+                        paddingTop: 19.5,
+                        paddingLeft: 20)
+//        checkBox.centerY(inView: self)
         checkBox.setDimensions(height: 25, width: 25)
         
         contentView.addSubview(checkMark)
@@ -81,9 +83,9 @@ class ToDoListCell: UITableViewCell {
         
         addSubview(wishTextLabel)
         wishTextLabel.anchor(left: checkBox.rightAnchor,
-                     right: rightAnchor,
-                     paddingLeft: 20,
-                     paddingRight: 20)
+                             right: rightAnchor,
+                             paddingLeft: 20,
+                             paddingRight: 20)
         wishTextLabel.centerY(inView: self)
     }
     
