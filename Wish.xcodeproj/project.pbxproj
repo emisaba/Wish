@@ -16,6 +16,7 @@
 		823CCD422721892C002CCB1C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823CCD412721892C002CCB1C /* Constants.swift */; };
 		823CCD4427218E8B002CCB1C /* WishService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823CCD4327218E8B002CCB1C /* WishService.swift */; };
 		823CCD47272190A9002CCB1C /* Wish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823CCD46272190A9002CCB1C /* Wish.swift */; };
+		824655B227927A29002BD067 /* Yomogi-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 824655B027927A29002BD067 /* Yomogi-Regular.ttf */; };
 		825E69732747838F0054294C /* Moon Flower.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 825E69712747838E0054294C /* Moon Flower.ttf */; };
 		825E69742747838F0054294C /* Moon Flower.otf in Resources */ = {isa = PBXBuildFile; fileRef = 825E69722747838E0054294C /* Moon Flower.otf */; };
 		825E6976274783FF0054294C /* UIFont + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825E6975274783FF0054294C /* UIFont + Extension.swift */; };
@@ -67,6 +68,7 @@
 		823CCD412721892C002CCB1C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		823CCD4327218E8B002CCB1C /* WishService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishService.swift; sourceTree = "<group>"; };
 		823CCD46272190A9002CCB1C /* Wish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wish.swift; sourceTree = "<group>"; };
+		824655B027927A29002BD067 /* Yomogi-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Yomogi-Regular.ttf"; sourceTree = "<group>"; };
 		825E69712747838E0054294C /* Moon Flower.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Moon Flower.ttf"; sourceTree = "<group>"; };
 		825E69722747838E0054294C /* Moon Flower.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Moon Flower.otf"; sourceTree = "<group>"; };
 		825E6975274783FF0054294C /* UIFont + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + Extension.swift"; sourceTree = "<group>"; };
@@ -218,11 +220,28 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		825E6970274783780054294C /* Font */ = {
+		824655AE27927A12002BD067 /* Moon Flower */ = {
 			isa = PBXGroup;
 			children = (
 				825E69722747838E0054294C /* Moon Flower.otf */,
 				825E69712747838E0054294C /* Moon Flower.ttf */,
+			);
+			path = "Moon Flower";
+			sourceTree = "<group>";
+		};
+		824655AF27927A29002BD067 /* Yomogi */ = {
+			isa = PBXGroup;
+			children = (
+				824655B027927A29002BD067 /* Yomogi-Regular.ttf */,
+			);
+			path = Yomogi;
+			sourceTree = "<group>";
+		};
+		825E6970274783780054294C /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				824655AF27927A29002BD067 /* Yomogi */,
+				824655AE27927A12002BD067 /* Moon Flower */,
 			);
 			path = Font;
 			sourceTree = "<group>";
@@ -418,6 +437,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				824655B227927A29002BD067 /* Yomogi-Regular.ttf in Resources */,
 				825E69732747838F0054294C /* Moon Flower.ttf in Resources */,
 				827F0CE527048A33003A818A /* LaunchScreen.storyboard in Resources */,
 				82A5FB752721857100880703 /* GoogleService-Info.plist in Resources */,

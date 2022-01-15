@@ -21,7 +21,7 @@ class WishFeedController: HomeViewController {
     private lazy var editButton: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = 30
-        button.setImage(#imageLiteral(resourceName: "list").withRenderingMode(.alwaysTemplate), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "list-ul (1)").withRenderingMode(.alwaysTemplate), for: .normal)
         button.tintColor = .white
         button.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         button.addTarget(self, action: #selector(didTapEditButton), for: .touchUpInside)
@@ -79,8 +79,8 @@ class WishFeedController: HomeViewController {
         view.addSubview(editButton)
         editButton.anchor(top: view.safeAreaLayoutGuide.topAnchor,
                           right: view.rightAnchor,
-                          paddingTop: 10,
-                          paddingRight: 10)
+                          paddingTop: -15,
+                          paddingRight: 20)
         editButton.setDimensions(height: 60, width: 60)
     }
 }

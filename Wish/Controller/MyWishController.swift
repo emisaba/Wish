@@ -12,7 +12,7 @@ class MyWishViewController: HomeViewController {
         tv.register(ToDoListCell.self, forCellReuseIdentifier: cellIdentifier)
         tv.backgroundColor = .clear
         tv.separatorStyle = .none
-        tv.rowHeight = 70
+        tv.rowHeight = 60
         tv.contentInset = UIEdgeInsets(top: 70, left: 0, bottom: 10, right: 0)
         tv.alpha = 0
         return tv
@@ -20,10 +20,9 @@ class MyWishViewController: HomeViewController {
     
     private lazy var closeButton: UIButton = {
         let button = UIButton()
-        button.layer.cornerRadius = 30
         button.setImage(#imageLiteral(resourceName: "close").withRenderingMode(.alwaysTemplate), for: .normal)
         button.tintColor = .white
-        button.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        button.contentEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         button.addTarget(self, action: #selector(didTapCloseButton), for: .touchUpInside)
         button.alpha = 0
         return button
@@ -96,7 +95,8 @@ class MyWishViewController: HomeViewController {
     func configureUI() {
         
         view.addSubview(fireWorks)
-        fireWorks.frame = CGRect(x: 0, y: view.frame.height - 300, width: 0, height: 0)
+        fireWorks.frame = CGRect(x: 0, y: view.frame.height - 320, width: 0, height: 0)
+        fireWorks.center.x = view.frame.width / 2
         fireWorks.alpha = 0
         
         view.addSubview(toDoList)
@@ -108,9 +108,9 @@ class MyWishViewController: HomeViewController {
         view.addSubview(closeButton)
         closeButton.anchor(top: view.safeAreaLayoutGuide.topAnchor,
                            right: view.rightAnchor,
-                           paddingTop: 10,
-                           paddingRight: 10)
-        closeButton.setDimensions(height: 60, width: 60)
+                           paddingTop: 0,
+                           paddingRight: 28)
+        closeButton.setDimensions(height: 30, width: 30)
         
         UIView.animate(withDuration: 0.25) {
             self.toDoList.alpha = 1
@@ -124,7 +124,7 @@ class MyWishViewController: HomeViewController {
             self.fireWorks.alpha = 1
             
         } completion: { _ in
-            UIView.animate(withDuration: 1, delay: 10) {
+            UIView.animate(withDuration: 1, delay: 3) {
                 self.fireWorks.alpha = 0
             }
         }

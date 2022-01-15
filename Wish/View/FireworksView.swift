@@ -61,13 +61,13 @@ class FireWorksView: UIView {
         let sparkCell = CAEmitterCell()
         sparkCell.contents = particleImage
         sparkCell.emissionRange = 2 * CGFloat.pi
-        sparkCell.birthRate = 8000
+        sparkCell.birthRate = 9000
         sparkCell.scale = 0.5
         sparkCell.velocity = 130
         sparkCell.lifetime = 3.0
         sparkCell.yAcceleration = 80
         sparkCell.beginTime = 1.5
-        sparkCell.duration = 0.1
+        sparkCell.duration = 0.08
         sparkCell.alphaSpeed = -0.1
         sparkCell.scaleSpeed = -0.1
         

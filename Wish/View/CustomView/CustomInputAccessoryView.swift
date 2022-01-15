@@ -8,29 +8,17 @@ class CustomInputAccessoryView: UIView {
     
     // MARK: - Properties
     
-    var delegate: CustomInputAccessoryViewDelegate?
+    public var delegate: CustomInputAccessoryViewDelegate?
     
-    let inputTextView: UITextView = {
-        let tv = UITextView()
-        tv.font = UIFont.systemFont(ofSize: 16)
-        tv.isScrollEnabled = false
-        tv.layer.cornerRadius = 5
-        return tv
-    }()
+    private lazy var inputTextView = createTextField()
     
     private let addListButton: UIButton = {
         let button = UIButton()
         button.setImage(#imageLiteral(resourceName: "list-add"), for: .normal)
+        button.contentMode = .scaleAspectFit
         button.addTarget(self, action: #selector(didTapAddListButton), for: .touchUpInside)
+        button.contentEdgeInsets = UIEdgeInsets(top: 3, left: 3, bottom: 3, right: 3)
         return button
-    }()
-    
-    let placeholderLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 14)
-        label.text = "Wish upon a star..."
-        label.textColor = .lightGray
-        return label
     }()
     
     private let blurView: UIVisualEffectView = {
@@ -64,11 +52,6 @@ class CustomInputAccessoryView: UIView {
         
         inputTextView.resignFirstResponder()
         inputTextView.text = nil
-        placeholderLabel.isHidden = false
-    }
-    
-    @objc func handleTextInputChange() {
-        placeholderLabel.isHidden = !inputTextView.text.isEmpty
     }
     
     // MARK: - Helpers
@@ -77,30 +60,40 @@ class CustomInputAccessoryView: UIView {
         addSubview(blurView)
         blurView.fillSuperview()
         
-        addSubview(addListButton)
-        addListButton.anchor(top: topAnchor,
-                          right: rightAnchor,
-                          paddingTop: 4,
-                          paddingRight: 8)
-        addListButton.setDimensions(height: 50, width: 50)
-        
         addSubview(inputTextView)
         inputTextView.anchor(top: topAnchor,
-                                    left: leftAnchor,
-                                    bottom: safeAreaLayoutGuide.bottomAnchor,
-                                    right: addListButton.leftAnchor,
-                                    paddingTop: 12,
-                                    paddingLeft: 12,
-                                    paddingBottom: 8,
-                                    paddingRight: 8)
+                             left: leftAnchor,
+                             bottom: safeAreaLayoutGuide.bottomAnchor,
+                             right: rightAnchor,
+                             paddingTop: 12,
+                             paddingLeft: 12,
+                             paddingBottom: 8,
+                             paddingRight: 56,
+                             height: 40)
         
-        addSubview(placeholderLabel)
-        placeholderLabel.anchor(left: inputTextView.leftAnchor, paddingLeft: 4)
-        placeholderLabel.centerY(inView: inputTextView)
+        addSubview(addListButton)
+        addListButton.anchor(right: rightAnchor,
+                             paddingRight: 8)
+        addListButton.setDimensions(height: 30, width: 40)
+        addListButton.centerY(inView: inputTextView)
+    }
+    
+    func createTextField() -> UITextField {
+        let tf = UITextField()
+        tf.font = .yomogi(size: 16)
+        tf.layer.cornerRadius = 5
+        tf.backgroundColor = .white
+        tf.tintColor = .lightGray
         
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(handleTextInputChange),
-                                               name: UITextView.textDidChangeNotification,
-                                               object: nil)
+        let leftView = UIView(frame: CGRect(x: 0, y: 0, width: 6, height: 50))
+        tf.leftView = leftView
+        tf.leftViewMode = .always
+        
+        let attributes: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.black,
+                                                         .font: UIFont.moonFlower(size: 24),
+                                                         .kern: 2]
+        tf.attributedPlaceholder = NSAttributedString(string: "Wish upon a star...", attributes: attributes)
+        
+        return tf
     }
 }

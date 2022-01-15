@@ -23,7 +23,7 @@ class WishFeedCell: UITableViewCell {
         label.numberOfLines = 0
         label.textAlignment = .center
         label.alpha = 0
-        label.font = .mnoonFlower(size: 50)
+        label.font = .yomogi(size: 16)
         return label
     }()
     
@@ -38,7 +38,7 @@ class WishFeedCell: UITableViewCell {
         
         guard let viewModal = wishFeedViewModel else { return }
         let labelHeight: CGFloat = 80
-        let sidePadding: CGFloat = 20
+        let sidePadding: CGFloat = 10
         
         feedLabel.frame = CGRect(x: sidePadding,
                                  y: viewModal.rowHeight - labelHeight,

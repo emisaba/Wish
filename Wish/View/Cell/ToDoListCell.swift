@@ -21,7 +21,7 @@ class ToDoListCell: UITableViewCell {
         let button = UIButton()
         button.layer.cornerRadius = 5
         button.layer.borderColor = UIColor.white.cgColor
-        button.layer.borderWidth = 3
+        button.layer.borderWidth = 1
         button.addTarget(self, action: #selector(didTapCheckBox), for: .touchUpInside)
         return button
     }()
@@ -40,7 +40,7 @@ class ToDoListCell: UITableViewCell {
         label.backgroundColor = .clear
         label.textColor = .white
         label.numberOfLines = 0
-        label.font = .mnoonFlower(size: 50)
+        label.font = .yomogi(size: 22)
         return label
     }()
     
@@ -71,9 +71,7 @@ class ToDoListCell: UITableViewCell {
         contentView.addSubview(checkBox)
         checkBox.anchor(top: topAnchor,
                         left: leftAnchor,
-                        paddingTop: 19.5,
                         paddingLeft: 20)
-//        checkBox.centerY(inView: self)
         checkBox.setDimensions(height: 25, width: 25)
         
         contentView.addSubview(checkMark)
@@ -82,11 +80,10 @@ class ToDoListCell: UITableViewCell {
         checkMark.centerX(inView: checkBox)
         
         addSubview(wishTextLabel)
-        wishTextLabel.anchor(left: checkBox.rightAnchor,
-                             right: rightAnchor,
-                             paddingLeft: 20,
-                             paddingRight: 20)
-        wishTextLabel.centerY(inView: self)
+        wishTextLabel.anchor(top: topAnchor,
+                             left: checkBox.rightAnchor,
+                             paddingTop: -5,
+                             paddingLeft: 20)
     }
     
     func configureViewModel(viewModel: toDoListViewModel) {
